@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Descubra Piaçaguera — Conecta Caiçara</title>
+<meta name="description" content="Guia digital de cicloturismo sustentável da Ilha de Piaçaguera: trilha, artesanato, gastronomia, pontos turísticos e hospedagens da comunidade caiçara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,500&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===================== CABEÇALHO ===================== -->
+<header class="cabecalho">
+  <div class="container">
+    <a href="#topo" class="marca">
+      <img src="assets/logo.jpeg" alt="Logo Conecta Caiçara">
+      <span class="nomes">
+        <span class="nome-projeto">Descubra Piaçaguera</span>
+        <span class="nome-iniciativa">um guia do projeto Conecta Caiçara</span>
+      </span>
+    </a>
+    <nav class="menu-principal" id="menu-principal">
+      <a href="#trilha">Mapa da Trilha</a>
+      <a href="#artesanato">Artesanato</a>
+      <a href="#gastronomia">Gastronomia</a>
+      <a href="#pontos">Pontos Turísticos</a>
+      <a href="#hospedagens">Hospedagens</a>
+    </nav>
+    <button class="btn-menu-mobile" id="btn-menu-mobile" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="topo">
+  <div class="container">
+    <div class="hero-conteudo">
+      <span class="rotulo-secao">Ilha de Piaçaguera</span>
+      <h1>Descubra Piaçaguera</h1>
+      <p class="frase">Explore caminhos, sabores, histórias e experiências da nossa comunidade.</p>
+      <div class="acoes-hero">
+        <a href="#lobby" class="botao botao-primario">Explore a Ilha</a>
+        <a href="#trilha" class="botao botao-secundario">Ver o mapa da trilha</a>
+      </div>
+    </div>
+    <div class="hero-ilustracao" aria-hidden="true">
+      <svg viewBox="0 0 320 320" fill="none">
+        <circle cx="160" cy="160" r="150" fill="rgba(251,248,242,0.08)"/>
+        <circle cx="160" cy="160" r="118" fill="rgba(251,248,242,0.10)"/>
+        <path d="M40 210 Q100 180 160 210 T280 210" stroke="rgba(251,248,242,0.5)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M30 230 Q100 200 160 230 T290 230" stroke="rgba(251,248,242,0.3)" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <g transform="translate(108,150)">
+          <circle cx="14" cy="60" r="24" stroke="#fbf8f2" stroke-width="6" fill="none"/>
+          <circle cx="90" cy="60" r="24" stroke="#fbf8f2" stroke-width="6" fill="none"/>
+          <path d="M14 60 L46 20 H70 M46 20 L60 60 H90 M60 60 L38 60" stroke="#fbf8f2" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="46" cy="20" r="5" fill="#fbf8f2"/>
+        </g>
+        <path d="M70 90 Q80 70 100 80 Q95 60 115 60" stroke="#eee1c6" stroke-width="5" fill="none" stroke-linecap="round"/>
+        <path d="M230 240 Q240 220 260 230 Q255 210 275 210" stroke="#eee1c6" stroke-width="5" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <div class="onda-divisora">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 40 Q 360 90 720 40 T1440 40 V90 H0 Z"/></svg>
+  </div>
+</section>
+
+<!-- ===================== LOBBY DE CATEGORIAS ===================== -->
+<section class="secao" id="lobby">
+  <div class="container">
+    <div class="secao-titulo">
+      <span class="rotulo-secao">Por onde começar</span>
+      <h2>O que você quer descobrir hoje?</h2>
+      <p>Cinco caminhos para conhecer Piaçaguera, da trilha até a mesa da comunidade.</p>
+    </div>
+
+    <div class="lobby-grid">
+      <a href="#trilha" class="card-lobby destaque cor-trilha revelar">
+        <h3>Mapa da Trilha</h3>
+        <p>De Piaçaguera até a Ponta de Uba: paradas, distâncias e o que ver no caminho.</p>
+        <span class="ir">Ver o percurso</span>
+      </a>
+      <a href="#artesanato" class="card-lobby cor-artesanato revelar">
+        <h3>Artesanato Local</h3>
+        <p>Cestaria, cerâmica e trançados feitos pelas mãos da comunidade.</p>
+        <span class="ir">Conhecer</span>
+      </a>
+      <a href="#gastronomia" class="card-lobby cor-gastronomia revelar">
+        <h3>Gastronomia</h3>
+        <p>Sabores caiçaras, do mar à mesa.</p>
+        <span class="ir">Provar</span>
+      </a>
+      <a href="#pontos" class="card-lobby cor-pontos revelar">
+        <h3>Pontos Turísticos</h3>
+        <p>Natureza, cultura e história da ilha.</p>
+        <span class="ir">Visitar</span>
+      </a>
+      <a href="#hospedagens" class="card-lobby cor-hospedagem revelar">
+        <h3>Hospedagens</h3>
+        <p>Onde ficar durante sua visita.</p>
+        <span class="ir">Encontrar</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TRILHA ===================== -->
+<section class="secao trilha-secao" id="trilha">
+  <div class="container">
+    <div class="secao-titulo">
+      <span class="rotulo-secao">Piaçaguera → Ponta de Uba</span>
+      <h2>Mapa da trilha</h2>
+      <p>Acompanhe o percurso e as paradas ao longo do caminho, com distância aproximada desde o início.</p>
+    </div>
+
+    <div class="trilha-caminho" id="lista-trilha"></div>
+
+    <div style="margin-top: 30px;">
+      <a href="#trilha" class="botao botao-primario">Ver detalhes do percurso</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ARTESANATO ===================== -->
+<section class="secao" id="artesanato">
+  <div class="container">
+    <div class="secao-titulo">
+      <span class="rotulo-secao">Feito à mão</span>
+      <h2>Artesanato local</h2>
+      <p>Pequenos empreendimentos e artesãos da comunidade de Piaçaguera.</p>
+    </div>
+
+    <div class="barra-filtros-secao">
+      <div class="busca-input">
+        <input type="text" id="busca-artesanato" placeholder="Buscar por nome ou descrição...">
+      </div>
+      <div class="filtros-categorias" id="filtros-artesanato"></div>
+    </div>
+
+    <div class="grid-cards" id="grid-artesanato"></div>
+  </div>
+</section>
+
+<!-- ===================== GASTRONOMIA ===================== -->
+<section class="secao trilha-secao" id="gastronomia">
+  <div class="container">
+    <div class="secao-titulo">
+      <span class="rotulo-secao">Sabores da ilha</span>
+      <h2>Gastronomia</h2>
+      <p>Restaurantes, quiosques e comidas típicas da região.</p>
+    </div>
+
+    <div class="barra-filtros-secao">
+      <div class="busca-input">
+        <input type="text" id="busca-gastronomia" placeholder="Buscar por nome ou descrição...">
+      </div>
+      <div class="filtros-categorias" id="filtros-gastronomia"></div>
+    </div>
+
+    <div class="grid-cards" id="grid-gastronomia"></div>
+  </div>
+</section>
+
+<!-- ===================== PONTOS TURÍSTICOS ===================== -->
+<section class="secao" id="pontos">
+  <div class="container">
+    <div class="secao-titulo">
+      <span class="rotulo-secao">Natureza, cultura e história</span>
+      <h2>Pontos turísticos</h2>
+      <p>Os atrativos naturais, culturais e históricos de Piaçaguera.</p>
+    </div>
+
+    <div class="barra-filtros-secao">
+      <div class="busca-input">
+        <input type="text" id="busca-pontos" placeholder="Buscar por nome ou descrição...">
+      </div>
+      <div class="filtros-categorias" id="filtros-pontos"></div>
+    </div>
+
+    <div class="grid-cards" id="grid-pontos"></div>
+  </div>
+</section>
+
+<!-- ===================== HOSPEDAGENS ===================== -->
+<section class="secao trilha-secao" id="hospedagens">
+  <div class="container">
+    <div class="secao-titulo">
+      <span class="rotulo-secao">Onde ficar</span>
+      <h2>Hospedagens</h2>
+      <p>Opções de estadia oferecidas pela comunidade local.</p>
+    </div>
+
+    <div class="barra-filtros-secao">
+      <div class="busca-input">
+        <input type="text" id="busca-hospedagens" placeholder="Buscar por nome ou descrição...">
+      </div>
+      <div class="filtros-categorias" id="filtros-hospedagens"></div>
+    </div>
+
+    <div class="grid-cards" id="grid-hospedagens"></div>
+  </div>
+</section>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape-grid">
+      <div>
+        <div class="rodape-marca">
+          <img src="assets/logo.jpeg" alt="Logo Conecta Caiçara">
+          <div>
+            <div class="nome-projeto">Descubra Piaçaguera</div>
+            <div class="nome-iniciativa">Conecta Caiçara</div>
+          </div>
+        </div>
+        <p class="sobre">Um guia digital criado para valorizar os moradores, divulgar os pequenos empreendedores e incentivar um cicloturismo sustentável e responsável na Ilha de Piaçaguera.</p>
+      </div>
+      <div>
+        <h5>Navegação</h5>
+        <div class="rodape-links">
+          <a href="#trilha">Mapa da Trilha</a>
+          <a href="#artesanato">Artesanato Local</a>
+          <a href="#gastronomia">Gastronomia</a>
+          <a href="#pontos">Pontos Turísticos</a>
+          <a href="#hospedagens">Hospedagens</a>
+        </div>
+      </div>
+      <div>
+        <h5>Redes sociais</h5>
+        <div class="rodape-redes">
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener"></a>
+          <a href="#" aria-label="WhatsApp" target="_blank" rel="noopener"></a>
+          <a href="#" aria-label="Facebook" target="_blank" rel="noopener"></a>
+        </div>
+      </div>
+    </div>
+    <div class="rodape-creditos">
+      <span>© <span id="ano-atual"></span> Conecta Caiçara — Descubra Piaçaguera</span>
+      <span>Feito com carinho pela e para a comunidade caiçara</span>
+      <span>Desenvolvido por <a href="#" target="_blank" rel="noopener">Andriellyn</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== MODAL DE DETALHES ===================== -->
+<div class="modal-fundo" id="modal-detalhe">
+  <div class="modal-caixa">
+    <div style="position:relative;">
+      <div class="modal-imagem" id="modal-imagem"></div>
+      <button class="modal-fechar" id="fechar-modal" aria-label="Fechar">&times;</button>
+    </div>
+    <div class="modal-corpo">
+      <div class="categoria-tag" id="modal-categoria"></div>
+      <h3 id="modal-nome"></h3>
+      <p class="local" id="modal-local"></p>
+      <p class="descricao" id="modal-descricao"></p>
+      <div class="acoes-modal" id="modal-acoes"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== BOTÃO VOLTAR AO TOPO ===================== -->
+<button class="btn-topo" id="btn-topo" aria-label="Voltar ao topo">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
