@@ -30,7 +30,7 @@ const artesanato = [
   { id: 'art2', categoria: 'Cerâmica', nome: 'Ateliê Barro do Mar', local: 'Centro de Piaçaguera', descricao: 'Peças de cerâmica inspiradas em elementos da natureza local.', contato: '#' },
   { id: 'art3', categoria: 'Madeira', nome: 'Marcenaria Seu Adão', local: 'Trecho da Mata Fechada', descricao: 'Utensílios e esculturas em madeira de reaproveitamento.', contato: '#' },
   { id: 'art4', categoria: 'Bordado', nome: 'Bordados da Enseada', local: 'Enseada do Cambará', descricao: 'Panos e roupas bordados com motivos da fauna e flora caiçara.', contato: '#' },
-  { id: 'art5', categoria: 'Greal', nome: 'Artezanatos Marizete', local: 'Ponta de Uba', descricao: 'Bolsas e chapéus de palha trançada, produção familiar.', contato: '#' },
+  { id: 'art5', categoria: 'Geral', nome: 'Artezanatos Marizete', local: 'Ponta de Uba', descricao: 'Bolsas e chapéus de palha trançada, produção familiar.', contato: '#' },
 ];
 
 const gastronomia = [
