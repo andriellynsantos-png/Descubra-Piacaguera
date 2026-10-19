@@ -1,17 +1,3 @@
-/* ============================================================
-   DESCUBRA PIAÇAGUERA — script.js
-   ------------------------------------------------------------
-   Todos os dados abaixo são DEMONSTRATIVOS (marcados com
-   "[EXEMPLO]"). Substitua pelos dados reais coletados na visita
-   de campo e validados com os moradores antes de publicar.
-
-   Estrutura pensada para, no futuro, trocar os arrays abaixo por
-   chamadas a um banco de dados/painel administrativo sem precisar
-   reescrever a lógica de renderização, busca e filtros.
-   ============================================================ */
-
-// ---------------- Dados demonstrativos ----------------
-
 const trilhaPontos = [
   {
     tipo: 'inicio',
@@ -24,12 +10,6 @@ const trilhaPontos = [
     nome: 'Mirante da Restinga',
     km: '1,8 km',
     descricao: 'Parada com vista para o mar, indicada para descanso e fotos.',
-  },
-  {
-    tipo: 'parada',
-    nome: 'Trecho da Mata Fechada',
-    km: '3,4 km',
-    descricao: 'Trecho sombreado entre a vegetação nativa, com sinalização de fauna local.',
   },
   {
     tipo: 'parada',
