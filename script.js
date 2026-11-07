@@ -1,23 +1,4 @@
-/* ============================================================
-   DESCUBRA PIAÇAGUERA — script.js
-   ------------------------------------------------------------
-   Cada item tem o campo "verificado":
-     true  = informação conferida em fonte pública (campo "fonte")
-     false = informação sua, ainda a confirmar com a comunidade.
-             Aparece no site com o aviso "em confirmação".
-   Quando confirmar com o morador, troque para true e preencha
-   "contato" (ex.: 'tel:+5541999999999' ou 'https://wa.me/55...').
-
-   FOTOS: coloque a foto em assets/fotos/ e preencha o campo
-   "imagem" (ex.: imagem: 'assets/fotos/igreja.jpg'). Sem foto,
-   o card mostra um ícone da categoria. Use só fotos suas ou
-   com autorização de quem fotografou e de quem aparece nelas.
-   ============================================================ */
-
-// Contato oficial da Rede Caiçara de Turismo Comunitário (Ytalo)
 const CONTATO_REDE_CAICARA = 'tel:+5541992022155';
-
-// ---------------- Dados ----------------
 
 const trilhaPontos = [
   {
@@ -46,15 +27,15 @@ const artesanato = [
   { id: 'art3', categoria: 'Cerâmica', nome: 'Ateliê Barro do Mar', local: 'Piaçaguera', descricao: 'Ateliê de cerâmica.', verificado: false },
   { id: 'art4', categoria: 'Madeira', nome: 'Marcenaria Seu Adão', local: 'Localização em confirmação', descricao: 'Peças em madeira.', verificado: false },
   { id: 'art5', categoria: 'Bordado', nome: 'Bordados da Enseada', local: 'Enseada do Cambará', descricao: 'Peças bordadas.', verificado: false },
-  { id: 'art6', categoria: 'Geral', nome: 'Artesanatos Marizete', local: 'Ponta do Ubá', descricao: 'Artesanato local.', verificado: false },
+  { id: 'art6', categoria: 'Geral', nome: 'Artesanatos Marizete', local: 'Ponta do Ubá', descricao: 'Artesanato local.', verificado: true },
 ];
 
 const gastronomia = [
   { id: 'gas1', categoria: 'Café caiçara', nome: 'Café da manhã caiçara em Piaçaguera', local: 'Piaçaguera', descricao: 'Experiência tradicional oferecida aos visitantes que chegam à vila, inclusive em passeios de canoagem saindo de Paranaguá. Cardápios e valores na Rede Caiçara.', contato: CONTATO_REDE_CAICARA, verificado: true, fonte: 'Cartilha Portos do Paraná; Agência Estadual de Notícias' },
   { id: 'gas2', categoria: 'Frutos do mar', nome: 'Siri de São Miguel', local: 'Vila São Miguel', descricao: 'A carne de siri capturado pelos pescadores locais é a especialidade da vila. Os visitantes também podem participar do descasque do siri.', contato: CONTATO_REDE_CAICARA, verificado: true, fonte: 'Cartilha Portos do Paraná' },
-  { id: 'gas3', categoria: 'Frutos do mar', nome: 'Restaurante Piaçai', local: 'Piaçaguera', descricao: 'Restaurante em Piaçaguera.', verificado: false },
-  { id: 'gas4', categoria: 'Doces e salgados', nome: 'Janeh Bolos e Salgados', local: 'Piaçaguera', descricao: 'Bolos e salgados.', verificado: false },
-  { id: 'gas5', categoria: 'Restaurante', nome: 'Restaurante do Seu Odair', local: 'Piaçaguera', descricao: 'Restaurante em Piaçaguera.', verificado: false },
+  { id: 'gas3', categoria: 'Frutos do mar', nome: 'Restaurante Piaçai', local: 'Piaçaguera', descricao: 'Restaurante em Piaçaguera.', verificado: true },
+  { id: 'gas4', categoria: 'Doces e salgados', nome: 'Janeh Bolos e Salgados', local: 'Piaçaguera', descricao: 'Bolos e salgados.', verificado: true },
+  { id: 'gas5', categoria: 'Restaurante', nome: 'Restaurante do Seu Odair', local: 'Piaçaguera', descricao: 'Restaurante em Piaçaguera.', verificado: true },
   { id: 'gas6', categoria: 'Frutos do mar', nome: 'Quiosque da Enseada', local: 'Enseada do Cambará', descricao: 'Quiosque na Enseada do Cambará.', verificado: false },
 ];
 
@@ -69,8 +50,8 @@ const pontosTuristicos = [
 ];
 
 const hospedagens = [
-  { id: 'hosp1', categoria: 'Pousada', nome: 'Pousada da Dona Deolinda', local: 'À direita do trapiche de Piaçaguera', descricao: 'Pousada em Piaçaguera.', verificado: false },
-  { id: 'hosp2', categoria: 'Camping', nome: 'Camping Familiar da Ponta do Ubá', local: 'Ponta do Ubá', descricao: 'Área de camping na Ponta do Ubá.', verificado: false },
+  { id: 'hosp1', categoria: 'Pousada', nome: 'Pousada da Dona Deolinda', local: 'À direita do trapiche de Piaçaguera', descricao: 'Pousada em Piaçaguera.', verificado: true },
+  { id: 'hosp2', categoria: 'Camping', nome: 'Pousada Mamangaba de Ubá', local: 'Ponta do Ubá', descricao: 'Pousada em Ponta de Ubá.', verificado: true },
 ];
 
 // ---------------- Estado dos filtros/busca por seção ----------------
