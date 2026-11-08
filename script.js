@@ -72,10 +72,10 @@ function escapeHtml(texto) {
 }
 
 const ICONES = {
-  'Cestaria', 'Cerâmica': '', 'Madeira': '', 'Bordado': '', 'Geral': '',
-  'Café caiçara': '☕', 'Frutos do mar': '🦀', 'Doces e salgados': '🍰', 'Restaurante': '🍽️',
-  'Natureza': '🌿', 'Cultura': '🎶', 'História': '⛪',
-  'Pousada': '🛏️', 'Camping': '⛺',
+  'Cestaria', 'Cerâmica': '', 'Madeira': '', 'Bordado': '',
+  'Café caiçara': '', 'Frutos do mar': '', 'Doces e salgados': '', 'Restaurante': '',
+  'Natureza': '', 'Cultura': '', 'História': '',
+  'Pousada': '', 'Camping': '',
 };
 
 function visualDoItem(item) {
@@ -263,8 +263,6 @@ function configurarBotaoTopo() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-// ---------------- Revelação suave ao rolar (um único observer) ----------------
 
 function configurarRevelacao() {
   const alvos = document.querySelectorAll('.revelar:not(.visivel)');
