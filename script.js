@@ -1,23 +1,3 @@
-/* ============================================================
-   DESCUBRA PIAÇAGUERA — script.js
-   ------------------------------------------------------------
-   Cada item tem o campo "verificado":
-     true  = informação conferida em fonte pública (campo "fonte")
-     false = informação sua, ainda a confirmar com a comunidade.
-             Aparece no site com o aviso "em confirmação".
-   Quando confirmar com o morador, troque para true e preencha
-   "contato" (ex.: 'tel:+5541999999999' ou 'https://wa.me/55...').
-
-   FOTOS: suba a foto para a pasta assets/fotos/ (pelo próprio
-   GitHub: Add file > Upload files) e escreva SÓ O NOME dela no
-   campo "imagem" do item. Exemplo:  imagem: 'restaurante-piacai.jpg'
-   Se o campo ficar vazio '' (ou o nome estiver errado), o card
-   mostra o ícone da categoria. Se quiser, preencha também "alt"
-   com uma frase descrevendo a foto. Use só fotos suas ou com
-   autorização de quem fotografou e de quem aparece nelas.
-   ============================================================ */
-
-// Contato oficial da Rede Caiçara de Turismo Comunitário (Ytalo)
 const CONTATO_REDE_CAICARA = 'tel:+5541992022155';
 
 // ---------------- Dados ----------------
