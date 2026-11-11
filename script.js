@@ -29,7 +29,6 @@ const artesanato = [
   { id: 'art3', categoria: 'Cerâmica', nome: 'Ateliê Barro do Mar', local: 'Piaçaguera', descricao: 'Ateliê de cerâmica.', imagem: '', verificado: false },
   { id: 'art4', categoria: 'Madeira', nome: 'Marcenaria Seu Adão', local: 'Localização em confirmação', descricao: 'Peças em madeira.', imagem: '', verificado: false },
   { id: 'art5', categoria: 'Bordado', nome: 'Bordados da Enseada', local: 'Enseada do Cambará', descricao: 'Peças bordadas.', imagem: '', verificado: false },
-  { id: 'art6', categoria: 'Geral', nome: 'Artesanatos Marizete', local: 'Ponta do Ubá', descricao: 'Artesanato local.', imagem: '', verificado: false },
 ];
 
 const gastronomia = [
@@ -80,12 +79,6 @@ const ICONES = {
   'Pousada': '\u{1F6CF}\u{FE0F}', 'Camping': '\u{26FA}',
 };
 
-// ---------------- Modo edição (prévia de fotos) ----------------
-// Abra o site com ?editar no final do endereço (ex.: index.html?editar).
-// Cada card ganha o botão "Trocar foto": escolha uma foto do celular/computador
-// e ela aparece na hora. ATENÇÃO: a foto fica salva só neste navegador, como
-// prévia. Para valer para todos os visitantes, a foto precisa estar no
-// repositório (assets/fotos/) ou em um link, com o campo "imagem" preenchido.
 const MODO_EDICAO = (() => {
   const params = new URLSearchParams(location.search);
   try {
@@ -107,8 +100,8 @@ const PASTA_FOTOS = 'assets/fotos/';
 function caminhoDaFoto(nome) {
   const n = String(nome || '').trim();
   if (!n) return '';
-  if (/^(https?:|data:|\/|assets\/)/i.test(n)) return n; // link ou caminho completo
-  return PASTA_FOTOS + n;                                   // só o nome do arquivo
+  if (/^(https?:|data:|\/|assets\/)/i.test(n)) return n; 
+  return PASTA_FOTOS + n;                                   
 }
 
 function visualDoItem(item) {
