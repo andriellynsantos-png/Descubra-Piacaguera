@@ -1,6 +1,5 @@
-/* Mural dos momentos: fotos de visitantes + login. Veja LEIA-ME-MURAL.md */
 const SUPABASE_URL = 'https://sqlxvhimnhlthiukgumm.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_vpGSe2-_rFzvEfuy3nUYBg_F8U6cSQl'; // chave pública (publishable)
+const SUPABASE_ANON_KEY = 'sb_publishable_vpGSe2-_rFzvEfuy3nUYBg_F8U6cSQl'; 
 
 const TERMOS = `
 <p><strong>1. Finalidade.</strong> O Mural dos momentos, do projeto Conecta Caiçara, reúne fotos de visitantes de Piaçaguera para divulgar a comunidade e o turismo de base comunitária.</p>
