@@ -1,0 +1,42 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function logado() {
+      return request.auth != null;
+    }
+
+    function ehAdmin() {
+      return logado() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // Lista de administradores: cada pessoa só lê o próprio documento; ninguém grava pelo site.
+    // Para criar um admin, use o console do Firebase.
+    match /admins/{uid} {
+      allow read: if logado() && request.auth.uid == uid;
+      allow write: if false;
+    }
+
+    // Fotos do mural
+    match /fotos/{id} {
+      allow read: if true;
+
+      allow create: if logado()
+        && request.resource.data.keys().hasOnly(['userId', 'imagem', 'legenda', 'autor', 'aceitouTermosEm', 'criadoEm'])
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.imagem is string
+        && request.resource.data.imagem.size() < 300000
+        && request.resource.data.imagem.matches('^data:image/jpeg;base64,[A-Za-z0-9+/=]+$')
+        && request.resource.data.legenda is string
+        && request.resource.data.legenda.size() <= 200
+        && request.resource.data.autor is string
+        && request.resource.data.autor.size() <= 40
+        && request.resource.data.aceitouTermosEm == request.time
+        && request.resource.data.criadoEm == request.time;
+
+      allow update: if false;
+
+      allow delete: if logado() && (resource.data.userId == request.auth.uid || ehAdmin());
+    }
+  }
+}
