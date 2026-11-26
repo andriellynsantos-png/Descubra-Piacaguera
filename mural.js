@@ -2,18 +2,18 @@ const SUPABASE_URL = 'https://sqlxvhimnhlthiukgumm.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_vpGSe2-_rFzvEfuy3nUYBg_F8U6cSQl'; 
 
 const TERMOS = `
-<p><strong>1. Finalidade.</strong> O Mural dos momentos, do projeto Conecta Caiçara, reúne fotos de visitantes de Piaçaguera para divulgar a comunidade e o turismo de base comunitária.</p>
-<p><strong>2. Conteúdo permitido.</strong> Publique apenas fotos suas, feitas durante a visita. Não são permitidos nudez, violência, discriminação, propaganda, conteúdo ilegal ou que exponha moradores sem autorização.</p>
+<p><strong>1. Finalidade.</strong> O Mural dos momentos, do projeto Rodas Sobre Areia, reúne fotos de visitantes de Piaçaguera para divulgar a comunidade e o turismo de base comunitária.</p>
+<p><strong>2. Conteúdo permitido.</strong> Publique apenas fotos suas, feitas durante a visita. Não são permitidos nudez, violência, discriminação, conteúdo ilegal ou que exponha moradores sem autorização.</p>
 <p><strong>3. Direito de imagem.</strong> Ao publicar, você declara ter autorização das pessoas que aparecem de forma identificável. Fotos de crianças só com autorização do responsável. Evite fotografar casas e moradores sem permissão.</p>
 <p><strong>4. Licença de uso.</strong> Você continua dono da foto e autoriza, de forma gratuita e não exclusiva, sua exibição neste site e nos canais do projeto, com o crédito do nome informado, sem remuneração.</p>
 <p><strong>5. Moderação.</strong> A equipe pode remover, sem aviso, qualquer foto que viole este termo. Você pode apagar suas próprias fotos quando quiser.</p>
-<p><strong>6. Dados pessoais (LGPD).</strong> Coletamos seu e-mail (para o login), o nome que você digitar, a foto, a legenda e a data do aceite deste termo. A base legal é o seu consentimento. Não vendemos nem compartilhamos seus dados. Eles ficam armazenados em serviço de nuvem (Supabase), que pode operar fora do Brasil. O e-mail não aparece publicamente.</p>
+<p><strong>6. Dados pessoais (LGPD).</strong> Coletamos seu e-mail (para o login), o nome que você digitar, a foto, a legenda e a data do aceite deste termo. A base legal é o seu consentimento. Não vendemos nem compartilhamos seus dados. Eles ficam armazenados em serviço de nuvem, que pode operar fora do Brasil. O e-mail não aparece publicamente.</p>
 <p><strong>7. Seus direitos.</strong> Você pode pedir acesso, correção, exclusão dos seus dados e das suas fotos, e revogar este consentimento a qualquer momento, pelo contato abaixo.</p>
 <p><strong>8. Guarda.</strong> Mantemos seus dados enquanto sua conta existir ou até você pedir a exclusão.</p>
 <p><strong>9. Menores de 18 anos.</strong> Menores só podem postar com autorização de um responsável.</p>
 <p><strong>10. Responsabilidade.</strong> Você responde pelo conteúdo que publica. O projeto não se responsabiliza por fotos postadas em desacordo com este termo.</p>
 <p><strong>11. Alterações.</strong> Este termo pode ser atualizado. Mudanças relevantes serão avisadas no site.</p>
-<p><strong>12. Contato.</strong> [COLOQUE AQUI O E-MAIL DE CONTATO DO PROJETO]</p>`;
+<p><strong>12. Contato.</strong> [EMAIL]</p>`;
 
 (function () {
   const $ = (id) => document.getElementById(id);
@@ -26,7 +26,7 @@ const TERMOS = `
 
   function renderBarra() {
     $('mural-barra').innerHTML = `
-      <button type="button" class="botao botao-primario" id="mural-postar">📸 Compartilhar um momento</button>
+      <button type="button" class="botao botao-primario" id="mural-postar">Compartilhar um momento</button>
       <span class="mural-conta">${usuario
         ? `${admin ? '🛡️ Administrador · ' : ''}${escapeHtml(usuario.email)} <button type="button" class="link-botao" id="mural-sair">Sair</button>`
         : '<button type="button" class="link-botao" id="mural-entrar">Entrar</button>'}</span>`;
