@@ -10,8 +10,6 @@ service cloud.firestore {
       return logado() && exists(/databases/$(database)/documents/admins/$(request.auth.uid));
     }
 
-    // Lista de administradores: cada pessoa só lê o próprio documento; ninguém grava pelo site.
-    // Para criar um admin, use o console do Firebase.
     match /admins/{uid} {
       allow read: if logado() && request.auth.uid == uid;
       allow write: if false;
