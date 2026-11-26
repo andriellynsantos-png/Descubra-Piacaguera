@@ -1,12 +1,8 @@
-/* Mural dos momentos (Firebase, plano gratuito): fotos de visitantes + login. Veja LEIA-ME-MURAL.md */
-
-// Cole aqui o firebaseConfig do seu app web (Firebase > Configurações do projeto > Seus apps).
-// Estes valores são públicos e podem ficar no site. A segurança está nas regras do Firestore.
 const FIREBASE_CONFIG = {
-  apiKey: 'COLE_AQUI',
-  authDomain: 'COLE_AQUI',
-  projectId: 'COLE_AQUI',
-  appId: 'COLE_AQUI',
+  apiKey: 'AIzaSyClRRtOXIr94j62LgfsGri9uvArPcs4nrA',
+  authDomain: 'descubra-piacaguera.firebaseapp.com',
+  projectId: 'descubra-piacaguera',
+  appId: '1:895089599427:web:8c5bd881b1bcfe493b1376',
 };
 
 const TERMOS = `
