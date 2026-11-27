@@ -54,8 +54,6 @@ const hospedagens = [
   { id: 'hosp2', categoria: 'Camping', nome: 'Camping Familiar da Ponta do Ubá', local: 'Ponta do Ubá', descricao: 'Área de camping na Ponta do Ubá.', imagem: '', verificado: false },
 ];
 
-// ---------------- Estado dos filtros/busca por seção ----------------
-
 const estado = {
   artesanato: { busca: '', categoria: 'todas' },
   gastronomia: { busca: '', categoria: 'todas' },
@@ -63,12 +61,13 @@ const estado = {
   hospedagens: { busca: '', categoria: 'todas' },
 };
 
-// ---------------- Utilidades ----------------
-
 function escapeHtml(texto) {
-  const div = document.createElement('div');
-  div.textContent = texto ?? '';
-  return div.innerHTML;
+  return String(texto ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
 }
 
 const ICONES = {
@@ -78,12 +77,6 @@ const ICONES = {
   'Pousada': '\u{1F6CF}\u{FE0F}', 'Camping': '\u{26FA}',
 };
 
-// ---------------- Modo edição (prévia de fotos) ----------------
-// Abra o site com ?editar no final do endereço (ex.: index.html?editar).
-// Cada card ganha o botão "Trocar foto": escolha uma foto do celular/computador
-// e ela aparece na hora. ATENÇÃO: a foto fica salva só neste navegador, como
-// prévia. Para valer para todos os visitantes, a foto precisa estar no
-// repositório (assets/fotos/) ou em um link, com o campo "imagem" preenchido.
 const MODO_EDICAO = (() => {
   const params = new URLSearchParams(location.search);
   try {
@@ -127,8 +120,6 @@ function hrefSeguro(url) {
 function categoriasUnicas(lista) {
   return ['todas', ...new Set(lista.map((item) => item.categoria))];
 }
-
-// ---------------- Renderização de grids com busca + filtro ----------------
 
 function renderGrid(containerId, dados, chaveEstado, corClasse) {
   const container = document.getElementById(containerId);
@@ -304,8 +295,6 @@ function configurarModoEdicao() {
   });
 }
 
-// ---------------- Modal de detalhes ----------------
-
 const bancoDados = { artesanato, gastronomia, pontos: pontosTuristicos, hospedagens };
 
 let ultimoFoco = null;
@@ -352,8 +341,6 @@ function fecharModal() {
   if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
 }
 
-// ---------------- Trilha: renderização dos pontos ----------------
-
 function renderTrilha() {
   const container = document.getElementById('lista-trilha');
   if (!container) return;
@@ -373,8 +360,6 @@ function renderTrilha() {
     .join('');
 }
 
-// ---------------- Menu mobile ----------------
-
 function configurarMenuMobile() {
   const btn = document.getElementById('btn-menu-mobile');
   const menu = document.getElementById('menu-principal');
@@ -390,8 +375,6 @@ function configurarMenuMobile() {
   });
 }
 
-// ---------------- Botão voltar ao topo ----------------
-
 function configurarBotaoTopo() {
   const btn = document.getElementById('btn-topo');
   if (!btn) return;
@@ -404,8 +387,6 @@ function configurarBotaoTopo() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-// ---------------- Revelação suave ao rolar (um único observer) ----------------
 
 function configurarRevelacao() {
   const alvos = document.querySelectorAll('.revelar:not(.visivel)');
@@ -426,12 +407,6 @@ function configurarRevelacao() {
   );
   alvos.forEach((el) => observer.observe(el));
 }
-
-// ---------------- Páginas (uma seção por vez) ----------------
-// A página inicial mostra só o topo e os quadrados. Ao clicar em um quadrado
-// (ou no menu), o site mostra apenas aquela seção, com botão para voltar.
-// Funciona pelo endereço: #gastronomia, #artesanato etc. (o botão "voltar"
-// do navegador também funciona).
 
 const PAGINAS = {
   trilha: 'Mapa da Trilha',
@@ -496,8 +471,6 @@ function configurarPaginas() {
   atualizar(false);
 }
 
-// ---------------- Inicialização ----------------
-
 document.addEventListener('DOMContentLoaded', () => {
   // ano no rodapé
   const anoEl = document.getElementById('ano-atual');
@@ -515,7 +488,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGrid('grid-pontos', pontosTuristicos, 'pontos', 'cor-pontos');
   renderGrid('grid-hospedagens', hospedagens, 'hospedagens', 'cor-hospedagem');
 
-  // busca por seção
   [
     ['busca-artesanato', 'artesanato', () => renderGrid('grid-artesanato', artesanato, 'artesanato', 'cor-artesanato')],
     ['busca-gastronomia', 'gastronomia', () => renderGrid('grid-gastronomia', gastronomia, 'gastronomia', 'cor-gastronomia')],
