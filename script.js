@@ -54,16 +54,12 @@ const hospedagens = [
   { id: 'hosp2', categoria: 'Camping', nome: 'Camping Familiar da Ponta do Ubá', local: 'Ponta do Ubá', descricao: 'Área de camping na Ponta do Ubá.', imagem: '', verificado: false },
 ];
 
-// ---------------- Estado dos filtros/busca por seção ----------------
-
 const estado = {
   artesanato: { busca: '', categoria: 'todas' },
   gastronomia: { busca: '', categoria: 'todas' },
   pontos: { busca: '', categoria: 'todas' },
   hospedagens: { busca: '', categoria: 'todas' },
 };
-
-// ---------------- Utilidades ----------------
 
 function escapeHtml(texto) {
   return String(texto ?? '')
@@ -81,12 +77,11 @@ const ICONES = {
   'Pousada': '\u{1F6CF}\u{FE0F}', 'Camping': '\u{26FA}',
 };
 
-// ---------------- Fotos dos cards (editáveis pelo administrador) ----------------
-// O administrador (login do mural) vê o botão "Trocar foto" em cada card.
-// A foto escolhida é salva no Firebase (coleção "imagensItens") e aparece
-// para todos os visitantes. Sem foto salva, vale o campo "imagem" do item.
-let MODO_EDICAO = false;      // vira true quando o administrador entra (mural.js)
-const imagensRemotas = {};    // id do item -> foto salva no Firebase
+ O administrador (login do mural) vê o botão "Trocar foto" em cada card.
+ A foto escolhida é salva no Firebase (coleção "imagensItens") e aparece
+ para todos os visitantes. Sem foto salva, vale o campo "imagem" do item.
+let MODO_EDICAO = false;       vira true quando o administrador entra (mural.js)
+const imagensRemotas = {};     id do item -> foto salva no Firebase
 
 const REGEX_JPEG = /^data:image\/jpeg;base64,[A-Za-z0-9+/=]+$/;
 
@@ -100,8 +95,8 @@ const PASTA_FOTOS = 'assets/fotos/';
 function caminhoDaFoto(nome) {
   const n = String(nome || '').trim();
   if (!n) return '';
-  if (/^(https?:|data:|\/|assets\/)/i.test(n)) return n; // link ou caminho completo
-  return PASTA_FOTOS + n;                                   // só o nome do arquivo
+  if (/^(https?:|data:|\/|assets\/)/i.test(n)) return n;  link ou caminho completo
+  return PASTA_FOTOS + n;                                    só o nome do arquivo
 }
 
 function visualDoItem(item) {
@@ -122,8 +117,6 @@ function hrefSeguro(url) {
 function categoriasUnicas(lista) {
   return ['todas', ...new Set(lista.map((item) => item.categoria))];
 }
-
-// ---------------- Renderização de grids com busca + filtro ----------------
 
 function renderGrid(containerId, dados, chaveEstado, corClasse) {
   const container = document.getElementById(containerId);
@@ -220,7 +213,7 @@ function redimensionar(arquivo, max = 720, qualidade = 0.75) {
         canvas.width = Math.max(1, Math.round(img.width * escala));
         canvas.height = Math.max(1, Math.round(img.height * escala));
         const ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#fff';            // PNG com transparência não vira preto
+        ctx.fillStyle = '#fff';             PNG com transparência não vira preto
         ctx.fillRect(0, 0, canvas.width, canvas.height);
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
         resolve(canvas.toDataURL('image/jpeg', qualidade));
@@ -231,7 +224,7 @@ function redimensionar(arquivo, max = 720, qualidade = 0.75) {
   });
 }
 
-// Reduz até caber no limite aceito pelas regras do Firestore (150000 caracteres)
+ Reduz até caber no limite aceito pelas regras do Firestore (150000 caracteres)
 const LIMITE_FOTO_ITEM = 140000;
 async function prepararFotoItem(arquivo) {
   let lado = 720, q = 0.75;
@@ -270,7 +263,7 @@ function atualizarAvisoAdmin() {
   document.body.prepend(aviso);
 }
 
-// Chamado pelo mural.js quando o administrador entra ou sai
+ Chamado pelo mural.js quando o administrador entra ou sai
 function definirModoAdmin(ativo) {
   MODO_EDICAO = !!ativo;
   atualizarAvisoAdmin();
@@ -278,7 +271,7 @@ function definirModoAdmin(ativo) {
   atualizarModalAberto();
 }
 
-// Chamado pelo mural.js depois de ler as fotos salvas no Firebase
+ Chamado pelo mural.js depois de ler as fotos salvas no Firebase
 function aplicarImagensRemotas(mapa) {
   Object.keys(imagensRemotas).forEach((k) => delete imagensRemotas[k]);
   Object.assign(imagensRemotas, mapa || {});
@@ -339,8 +332,6 @@ function configurarModoEdicao() {
   });
 }
 
-// ---------------- Modal de detalhes ----------------
-
 const bancoDados = { artesanato, gastronomia, pontos: pontosTuristicos, hospedagens };
 
 let ultimoFoco = null;
@@ -387,8 +378,6 @@ function fecharModal() {
   if (ultimoFoco && ultimoFoco.focus) ultimoFoco.focus();
 }
 
-// ---------------- Trilha: renderização dos pontos ----------------
-
 function renderTrilha() {
   const container = document.getElementById('lista-trilha');
   if (!container) return;
@@ -408,8 +397,6 @@ function renderTrilha() {
     .join('');
 }
 
-// ---------------- Menu mobile ----------------
-
 function configurarMenuMobile() {
   const btn = document.getElementById('btn-menu-mobile');
   const menu = document.getElementById('menu-principal');
@@ -425,8 +412,6 @@ function configurarMenuMobile() {
   });
 }
 
-// ---------------- Botão voltar ao topo ----------------
-
 function configurarBotaoTopo() {
   const btn = document.getElementById('btn-topo');
   if (!btn) return;
@@ -439,8 +424,6 @@ function configurarBotaoTopo() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-// ---------------- Revelação suave ao rolar (um único observer) ----------------
 
 function configurarRevelacao() {
   const alvos = document.querySelectorAll('.revelar:not(.visivel)');
@@ -462,11 +445,10 @@ function configurarRevelacao() {
   alvos.forEach((el) => observer.observe(el));
 }
 
-// ---------------- Páginas (uma seção por vez) ----------------
-// A página inicial mostra só o topo e os quadrados. Ao clicar em um quadrado
-// (ou no menu), o site mostra apenas aquela seção, com botão para voltar.
-// Funciona pelo endereço: #gastronomia, #artesanato etc. (o botão "voltar"
-// do navegador também funciona).
+ A página inicial mostra só o topo e os quadrados. Ao clicar em um quadrado
+ (ou no menu), o site mostra apenas aquela seção, com botão para voltar.
+ Funciona pelo endereço: #gastronomia, #artesanato etc. (o botão "voltar"
+ do navegador também funciona).
 
 const PAGINAS = {
   trilha: 'Mapa da Trilha',
@@ -531,10 +513,8 @@ function configurarPaginas() {
   atualizar(false);
 }
 
-// ---------------- Inicialização ----------------
-
 document.addEventListener('DOMContentLoaded', () => {
-  // ano no rodapé
+   ano no rodapé
   const anoEl = document.getElementById('ano-atual');
   if (anoEl) anoEl.textContent = new Date().getFullYear();
 
@@ -550,7 +530,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGrid('grid-pontos', pontosTuristicos, 'pontos', 'cor-pontos');
   renderGrid('grid-hospedagens', hospedagens, 'hospedagens', 'cor-hospedagem');
 
-  // busca por seção
+   busca por seção
   [
     ['busca-artesanato', 'artesanato', () => renderGrid('grid-artesanato', artesanato, 'artesanato', 'cor-artesanato')],
     ['busca-gastronomia', 'gastronomia', () => renderGrid('grid-gastronomia', gastronomia, 'gastronomia', 'cor-gastronomia')],
