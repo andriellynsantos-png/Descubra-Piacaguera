@@ -17,7 +17,7 @@ const TERMOS = `
 <p><strong>9. Menores de 18 anos.</strong> Menores só podem postar com autorização de um responsável.</p>
 <p><strong>10. Responsabilidade.</strong> Você responde pelo conteúdo que publica. O projeto não se responsabiliza por fotos postadas em desacordo com este termo.</p>
 <p><strong>11. Alterações.</strong> Este termo pode ser atualizado. Mudanças relevantes serão avisadas no site.</p>
-<p><strong>12. Contato.</strong> [COLOQUE AQUI O E-MAIL DE CONTATO DO PROJETO]</p>`;
+<p><strong>12. Contato.</strong> [rodassobreareia@gmail.com]</p>`;
 
 (function () {
   const $ = (id) => document.getElementById(id);
@@ -33,10 +33,8 @@ const TERMOS = `
   }
   let usuario = null, admin = false, fotos = [], ultimo = null, temMais = false, falhou = false, querPostar = false;
 
-  // links de rede social ainda sem endereço não abrem nada
   document.querySelectorAll('.rodape-redes a[href="#"]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
-
-  // área do botão "Ver mais fotos" (fica logo abaixo do mural)
+  
   $('mural-feed').insertAdjacentHTML('afterend', '<div id="mural-mais-box" style="text-align:center;margin-top:24px"></div>');
 
   function msgErroAuth(err) {
@@ -58,9 +56,9 @@ const TERMOS = `
 
   function renderBarra() {
     $('mural-barra').innerHTML = `
-      <button type="button" class="botao botao-primario" id="mural-postar">📸 Compartilhar um momento</button>
+      <button type="button" class="botao botao-primario" id="mural-postar">Compartilhar um momento</button>
       <span class="mural-conta">${usuario
-        ? `${admin ? '🛡️ Administrador · ' : ''}${escapeHtml(usuario.email)} <button type="button" class="link-botao" id="mural-sair">Sair</button>`
+        ? `${admin ? ' Administrador · ' : ''}${escapeHtml(usuario.email)} <button type="button" class="link-botao" id="mural-sair">Sair</button>`
         : '<button type="button" class="link-botao" id="mural-entrar">Entrar</button>'}</span>`;
     $('mural-postar').onclick = quererPostar;
     if ($('mural-entrar')) $('mural-entrar').onclick = () => (configurado ? abrirLogin() : avisoConfig());
@@ -113,7 +111,6 @@ const TERMOS = `
     };
   }
 
-  // Reduz a foto e devolve um texto "data:image/jpeg;base64,..." para guardar no Firestore
   function comprimir(arq, maxLado, qualidade) {
     return new Promise((ok, falha) => {
       const url = URL.createObjectURL(arq);
