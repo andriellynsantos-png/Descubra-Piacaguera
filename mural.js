@@ -21,8 +21,8 @@ const TERMOS = `
 
 (function () {
   const $ = (id) => document.getElementById(id);
-  const POR_PAGINA = 12;          // fotos carregadas por vez (economiza a cota gratuita)
-  const LIMITE_CHARS = 250000;    // tamanho máximo da foto em texto (~185 KB); as regras aceitam até 300000
+  const POR_PAGINA = 12;          
+  const LIMITE_CHARS = 250000;    
 
   const configurado = !!(window.firebase && FIREBASE_CONFIG.projectId && !/^COLE/.test(FIREBASE_CONFIG.projectId));
   let auth = null, db = null;
