@@ -77,9 +77,6 @@ const ICONES = {
   'Pousada': '\u{1F6CF}\u{FE0F}', 'Camping': '\u{26FA}',
 };
 
- O administrador (login do mural) vê o botão "Trocar foto" em cada card.
- A foto escolhida é salva no Firebase (coleção "imagensItens") e aparece
- para todos os visitantes. Sem foto salva, vale o campo "imagem" do item.
 let MODO_EDICAO = false;       vira true quando o administrador entra (mural.js)
 const imagensRemotas = {};     id do item -> foto salva no Firebase
 
