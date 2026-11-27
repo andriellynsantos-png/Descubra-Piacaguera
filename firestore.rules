@@ -15,7 +15,6 @@ service cloud.firestore {
       allow write: if false;
     }
 
-    // Fotos do mural
     match /fotos/{id} {
       allow read: if true;
 
@@ -37,7 +36,6 @@ service cloud.firestore {
       allow delete: if logado() && (resource.data.userId == request.auth.uid || ehAdmin());
     }
 
-    // Fotos dos cards (gastronomia, artesanato etc.): todos leem, só admin altera
     match /imagensItens/{id} {
       allow read: if true;
       allow create, update: if ehAdmin()
