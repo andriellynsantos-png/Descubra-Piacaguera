@@ -787,7 +787,7 @@ body.paginas.pagina-interna #lobby { display: none; }
 .menu-principal a.ativo { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 3px; }
 
 /* ---------------- Mural dos momentos ---------------- */
-.card-lobby.cor-mural::before { background-image: linear-gradient(155deg, #2b6f83, #c9a24a); }
+card-lobby.cor-mural::before { background-image: linear-gradient(to top, rgba(20,45,36,0.94) 12%, rgba(20,45,36,0.62) 55%, rgba(20,45,36,0.15)), url('assets/fotos/mural-capa.jpg'); }
 .mural-barra { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 30px; }
 .mural-conta { font-size: 0.88rem; color: var(--texto-suave, #555); }
 .link-botao { font: inherit; font-weight: 700; color: #1f4a3a; background: none; border: none; cursor: pointer; text-decoration: underline; padding: 2px 4px; }
