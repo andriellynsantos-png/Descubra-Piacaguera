@@ -283,6 +283,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 .card-lobby:hover { transform: translateY(-4px); box-shadow: var(--sombra-quente-forte); }
 .card-lobby.destaque { grid-column: span 3; grid-row: span 2; border-radius: 36px 14px 36px 14px; }
+/* os dois quadrados ao lado do destaque ocupam as 3 colunas restantes (sem buraco no canto) */
+@media (min-width: 761px) {
+  .lobby-grid > .card-lobby:nth-child(2),
+  .lobby-grid > .card-lobby:nth-child(3) { grid-column: span 3; }
+}
 
 .card-lobby::before {
   content: "";
@@ -787,7 +792,7 @@ body.paginas.pagina-interna #lobby { display: none; }
 .menu-principal a.ativo { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 3px; }
 
 /* ---------------- Mural dos momentos ---------------- */
-card-lobby.cor-mural::before { background-image: linear-gradient(to top, rgba(20,45,36,0.94) 12%, rgba(20,45,36,0.62) 55%, rgba(20,45,36,0.15)), url('assets/fotos/mural-capa.jpg'); }
+.card-lobby.cor-mural::before { background-image: linear-gradient(to top, rgba(20,45,36,0.94) 12%, rgba(20,45,36,0.62) 55%, rgba(20,45,36,0.15)), url('assets/fotos/mural-capa.jpg'); }
 .mural-barra { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 30px; }
 .mural-conta { font-size: 0.88rem; color: var(--texto-suave, #555); }
 .link-botao { font: inherit; font-weight: 700; color: #1f4a3a; background: none; border: none; cursor: pointer; text-decoration: underline; padding: 2px 4px; }
