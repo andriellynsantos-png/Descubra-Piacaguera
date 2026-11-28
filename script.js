@@ -255,7 +255,6 @@ function atualizarAvisoAdmin() {
   aviso = document.createElement('div');
   aviso.id = 'aviso-admin';
   aviso.className = 'aviso-edicao';
-  aviso.innerHTML = '<strong>Modo administrador.</strong> Use <b>📷 Trocar foto</b> em qualquer card: a foto vale para todos os visitantes.';
   document.body.prepend(aviso);
 }
 
